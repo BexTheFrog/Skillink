@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Reset e Configuração Inicial */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #fff;
+  box-shadow: 0px 3px 10px #464646;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-menu {
+  display: none;
+}
+
+.header a {
+  color: #F57955;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: #5D64BE;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header .logo img {
+  width: 150px;
+  height: auto;
+}
+
+.header-left {
+  display: flex;
+  float: left;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right i {
+  padding: 5px;
+}
+
+.header-right.hidden {
+  display: none;
+}
+
+
+.container {
+  flex: 1; 
+  padding: 20px;
+}
+
+
+.blob-outer-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  inset: 0;
+  margin: auto;
+  filter: blur(50px);
+}
+
+.blob-inner-container {
+  border-radius: 99999px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+  transform: scale(0.6);
+}
+
+.blob {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  margin: auto;
+  background: conic-gradient(from 0deg, #90D5FE, #F57955, #5D64BE, #FAAA75, #FFF1D7);
+  animation: spinblob 8s linear infinite;
+}
+
+@keyframes spinblob {
+  0% {
+    transform: rotate(0deg) scale(2);
+  }
+  100% {
+    transform: rotate(1turn) scale(2);
+  }
+}
+
+
+.footer {
+  background-color: #90D5FE;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.column-footer {
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-footer img {
+  width: 50px;
+  height: auto;
+}
+
+.column-footer ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer h3 {
+  font-weight: 600;
+}
+
+#button-login {
+  background-color: #F57955;
+  margin: 5px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 800px) {
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 0px 3px 10px #464646;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    align-items: flex-start;
+    justify-content: center;
+}
+  
+  .header a {
+    display: block;
+    text-align: left;
+    padding: 8px;
+  }
+
+  .header-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-left {
+    display: flex;
+    float: left;
+  }
+
+  .button-menu {
+    display: block;
+    background-color: #fff;
+    border: none;
+  }
+
+  .header-right.hidden {
+    display: none; 
+  }
+  
+  .button-menu {
+    cursor: pointer;
+  }
+
+  .blob-inner-container {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 0px 3px 10px #464646;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.button-menu {
+  display: block;
+  border: none;
+  background-color: #fff;
+}
+
+.header-left {
+  display: flex;
+  float: left;
+}
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .blob-inner-container {
+    transform: scale(1);
+  }
+}
